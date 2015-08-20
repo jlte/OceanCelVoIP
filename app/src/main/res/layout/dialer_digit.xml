@@ -46,7 +46,8 @@
             android:layout_width="0px"
             android:layout_height="0px"
             android:focusable="true"
-            android:focusableInTouchMode="true" />
+            android:focusableInTouchMode="true"
+            android:id="@+id/view" />
 
         <com.csipsimple.ui.dialpad.DigitsEditText
             android:id="@+id/digitsText"
@@ -83,6 +84,17 @@
             android:layout_height="match_parent"
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Oceancel"
+            android:id="@+id/brandName"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
     </RelativeLayout>
     <!-- Autocomplete -->
 
