@@ -101,7 +101,7 @@
         android:name="android.hardware.camera.front"
         android:required="false" />
     <application
-        android:icon="@drawable/ic_launcher_nightly"
+        android:icon="@drawable/airchord"
         android:allowBackup="true"
         android:backupAgent="com.csipsimple.backup.SipBackupAgent"
         android:hardwareAccelerated="true"
