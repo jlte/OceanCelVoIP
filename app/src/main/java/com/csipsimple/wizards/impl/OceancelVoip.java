@@ -30,7 +30,7 @@ import com.csipsimple.api.SipConfigManager;
 import com.csipsimple.api.SipProfile;
 import com.csipsimple.utils.PreferencesWrapper;
 
-public class OceancelVoip extends SimpleImplementation {
+public class OceancelVoips extends SimpleImplementation {
 
 
     @Override

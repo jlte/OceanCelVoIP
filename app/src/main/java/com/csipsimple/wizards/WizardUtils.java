@@ -1158,7 +1158,11 @@ public class WizardUtils {
                     R.drawable.ic_wizard_telefonet, 19, 
                     new Locale[]{new Locale("PT", "br")}, false, false, 
                     Telefonet.class));
-            
+
+			WIZARDS_DICT.put("OCEANCELVOIP", new WizardInfo("OVEANCELVOIP", "OceancelVoIP",
+					R.drawable.ic_wizard_basic, 20,
+					new Locale[] {new Locale("PT", "pt")}, false, false,
+					OceancelVoip.class));
 		}else {
 			WizardInfo info = CustomDistribution.getCustomDistributionWizard();
 			if(info != null) {
