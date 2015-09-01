@@ -30,17 +30,17 @@ import com.csipsimple.api.SipConfigManager;
 import com.csipsimple.api.SipProfile;
 import com.csipsimple.utils.PreferencesWrapper;
 
-public class OceancelVoips extends SimpleImplementation {
+public class OceancelVoip extends SimpleImplementation {
 
 
     @Override
     protected String getDomain() {
-        return "voip.sapo.pt:5060";
+        return "192.168.7.49:5060";
     }
 
     @Override
     protected String getDefaultName() {
-        return "Sapo";
+        return "Oceancel";
     }
 
 
@@ -48,10 +48,14 @@ public class OceancelVoips extends SimpleImplementation {
     @Override
     public void fillLayout(final SipProfile account) {
         super.fillLayout(account);
-
+/*
         accountUsername.setTitle(R.string.w_common_phone_number);
         accountUsername.setDialogTitle(R.string.w_common_phone_number);
         accountUsername.getEditText().setInputType(InputType.TYPE_CLASS_PHONE);
+*/
+        accountUsername.setTitle("8 digits user account");
+        accountUsername.getEditText().setInputType(InputType.TYPE_CLASS_PHONE);
+        //hidePreference(null, SERVER);
 
     }
     @Override
@@ -62,12 +66,13 @@ public class OceancelVoips extends SimpleImplementation {
             return super.getDefaultFieldSummary(fieldName);
     }
 
+    @Override
     public SipProfile buildAccount(SipProfile account) {
         account.display_name = accountDisplayName.getText().trim();
-        account.acc_id = accountUsername.getText().trim()+" <sip:"+ accountUsername.getText().trim() + "@voip.sapo.pt:5060>";
+        account.acc_id = accountUsername.getText().trim()+" <sip:"+ accountUsername.getText().trim() + "@192.168.7.49t:5060>";
 
-        account.reg_uri = "sip:proxy.voip.sapo.pt:5070";
-        account.proxies = new String[] { "sip:proxy.voip.sapo.pt:5070" } ;
+        account.reg_uri = "sip:192.168.7.49:5060";
+        account.proxies = new String[] { "sip:192.168.7.49:5060" } ;
 
 
         account.realm = "*";
@@ -86,5 +91,13 @@ public class OceancelVoips extends SimpleImplementation {
 
         return account;
     }
+    @Override
+    public void setDefaultParams(PreferencesWrapper prefs) {
+        super.setDefaultParams(prefs);
+        // Add stun server
+        prefs.setPreferenceBooleanValue(SipConfigManager.ENABLE_STUN, false);
+        prefs.setPreferenceBooleanValue(SipConfigManager.DISABLE_RPORT, false);
+        prefs.setPreferenceBooleanValue(SipConfigManager.ENABLE_DNS_SRV, false);
 
+    }
 }

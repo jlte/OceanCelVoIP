@@ -22,7 +22,13 @@
 
 package com.csipsimple.utils;
 
+import com.csipsimple.R;
 import com.csipsimple.wizards.WizardUtils.WizardInfo;
+import com.csipsimple.wizards.impl.Keyyo;
+import com.csipsimple.wizards.impl.Local;
+import com.csipsimple.wizards.impl.OceancelVoip;
+
+import java.util.Locale;
 
 public final class CustomDistribution {
 	
@@ -35,7 +41,7 @@ public final class CustomDistribution {
 	 * @return Whether other accounts can be created
 	 */
 	public static boolean distributionWantsOtherAccounts() {
-		return true;
+		return false;
 	}
 	
 	/**
@@ -44,7 +50,7 @@ public final class CustomDistribution {
 	 * @return Whether other provider are listed is wizard picker
 	 */
 	public static boolean distributionWantsOtherProviders() {
-		return true;
+		return false;
 	}
 	
 	/**
@@ -68,10 +74,21 @@ public final class CustomDistribution {
 	 * The default wizard info for this distrib. If none no custom distribution wizard is shown
 	 * @return the default wizard info
 	 */
+//	public static WizardInfo getCustomDistributionWizard() {
+//		return null;
+//	}
+
 	public static WizardInfo getCustomDistributionWizard() {
-		return null; 
+/*		return new WizardInfo("KEYYO","keyyo", R.drawable.ic_wizard_keyyo , 9,
+				new Locale[] {Locale.JAPAN}, false , false,
+				Keyyo.class);
+*/
+		return new WizardInfo("JRC","JRC", R.drawable.airchord , 9,
+				new Locale[] {Locale.FRANCE}, false , false,
+				OceancelVoip.class);
+
 	}
-	
+
 	/**
 	 * Show or not the issue list in help
 	 * @return whether link to issue list should be displayed
