@@ -22,15 +22,18 @@
 package com.csipsimple.wizards.impl;
 
 import android.text.InputType;
+import android.widget.Toast;
 
 import java.util.HashMap;
 
 import com.csipsimple.R;
 import com.csipsimple.api.SipConfigManager;
 import com.csipsimple.api.SipProfile;
+import com.csipsimple.utils.Log;
 import com.csipsimple.utils.PreferencesWrapper;
 
 public class OceancelVoip extends SimpleImplementation {
+    private static final String TAG = "JRCk";
 
 
     @Override
@@ -40,7 +43,7 @@ public class OceancelVoip extends SimpleImplementation {
 
     @Override
     protected String getDefaultName() {
-        return "Oceancel";
+        return "your name"; /*return "OceanCel";*/
     }
 
 
@@ -53,16 +56,17 @@ public class OceancelVoip extends SimpleImplementation {
         accountUsername.setDialogTitle(R.string.w_common_phone_number);
         accountUsername.getEditText().setInputType(InputType.TYPE_CLASS_PHONE);
 */
-        accountUsername.setTitle("8 digits user account");
+        accountUsername.setTitle("50 digits user account");
         accountUsername.getEditText().setInputType(InputType.TYPE_CLASS_PHONE);
         //hidePreference(null, SERVER);
+        Log.d(TAG, "called3!!!");
 
     }
     @Override
     public String getDefaultFieldSummary(String fieldName) {
-            if(fieldName.equals(USER_NAME)) {
-                return parent.getString(R.string.w_sapo_phone_number_desc);
-            }
+//            if(fieldName.equals(USER_NAME)) {
+//                return parent.getString(R.string.w_sapo_phone_number_desc);
+//            }
             return super.getDefaultFieldSummary(fieldName);
     }
 
@@ -83,11 +87,12 @@ public class OceancelVoip extends SimpleImplementation {
 
         account.reg_timeout = 1800;
 
-        if(canTcp()) {
-            account.transport = accountUseTcp.isChecked() ? SipProfile.TRANSPORT_TCP : SipProfile.TRANSPORT_UDP;
-        }else {
+//        if(canTcp()) {
+//            account.transport = accountUseTcp.isChecked() ? SipProfile.TRANSPORT_TCP : SipProfile.TRANSPORT_UDP;
+//        }else {
             account.transport = SipProfile.TRANSPORT_UDP;
-        }
+//        }
+        Log.d(TAG, "called2!!!");
 
         return account;
     }
@@ -99,5 +104,56 @@ public class OceancelVoip extends SimpleImplementation {
         prefs.setPreferenceBooleanValue(SipConfigManager.DISABLE_RPORT, false);
         prefs.setPreferenceBooleanValue(SipConfigManager.ENABLE_DNS_SRV, false);
 
+        prefs.setPreferenceBooleanValue(SipConfigManager.ENABLE_TLS, false);
+
+        prefs.setCodecPriority("PCMU/8000/1", SipConfigManager.CODEC_WB,"200");
+
+        prefs.setCodecPriority("PCMA/8000/1",  SipConfigManager.CODEC_WB,"0");
+        prefs.setCodecPriority("G722/16000/1", SipConfigManager.CODEC_WB,"0");
+        prefs.setCodecPriority("G729/8000/1",  SipConfigManager.CODEC_WB,"0");
+        prefs.setCodecPriority("iLBC/8000/1",  SipConfigManager.CODEC_WB,"0");
+        prefs.setCodecPriority("speex/8000/1", SipConfigManager.CODEC_WB,"0");
+        prefs.setCodecPriority("speex/16000/1", SipConfigManager.CODEC_WB,"0");
+        prefs.setCodecPriority("speex/32000/1", SipConfigManager.CODEC_WB,"0");
+        prefs.setCodecPriority("GSM/8000/1",   SipConfigManager.CODEC_WB, "0");
+        prefs.setCodecPriority("SILK/8000/1",  SipConfigManager.CODEC_WB, "0");
+        prefs.setCodecPriority("SILK/12000/1", SipConfigManager.CODEC_WB, "0");
+        prefs.setCodecPriority("SILK/16000/1", SipConfigManager.CODEC_WB, "0");
+        prefs.setCodecPriority("SILK/24000/1", SipConfigManager.CODEC_WB, "0");
+        prefs.setCodecPriority("G726-16/8000/1", SipConfigManager.CODEC_WB, "0");
+        prefs.setCodecPriority("G726-24/8000/1", SipConfigManager.CODEC_WB, "0");
+        prefs.setCodecPriority("G726-32/8000/1", SipConfigManager.CODEC_WB, "0");
+        prefs.setCodecPriority("G726-40/8000/1", SipConfigManager.CODEC_WB, "0");
+        prefs.setCodecPriority("opus/48000/1", SipConfigManager.CODEC_WB, "0");
+
+
+         // G.729, G723.1, GSM, iLBC
+        prefs.setCodecPriority("PCMU/8000/1",  SipConfigManager.CODEC_NB,"200");
+
+        prefs.setCodecPriority("PCMA/8000/1",  SipConfigManager.CODEC_NB,"0");
+        prefs.setCodecPriority("G722/16000/1", SipConfigManager.CODEC_NB,"0");
+        prefs.setCodecPriority("G729/8000/1",  SipConfigManager.CODEC_NB,"0");
+        prefs.setCodecPriority("iLBC/8000/1",  SipConfigManager.CODEC_NB,"0");
+        prefs.setCodecPriority("speex/8000/1", SipConfigManager.CODEC_NB,"0");
+        prefs.setCodecPriority("speex/16000/1", SipConfigManager.CODEC_NB,"0");
+        prefs.setCodecPriority("speex/32000/1", SipConfigManager.CODEC_NB,"0");
+        prefs.setCodecPriority("GSM/8000/1",   SipConfigManager.CODEC_NB, "0");
+        prefs.setCodecPriority("SILK/8000/1",  SipConfigManager.CODEC_NB, "0");
+        prefs.setCodecPriority("SILK/12000/1", SipConfigManager.CODEC_NB, "0");
+        prefs.setCodecPriority("SILK/16000/1", SipConfigManager.CODEC_NB, "0");
+        prefs.setCodecPriority("SILK/24000/1", SipConfigManager.CODEC_NB, "0");
+        prefs.setCodecPriority("G726-16/8000/1", SipConfigManager.CODEC_NB, "0");
+        prefs.setCodecPriority("G726-24/8000/1", SipConfigManager.CODEC_NB, "0");
+        prefs.setCodecPriority("G726-32/8000/1", SipConfigManager.CODEC_NB, "0");
+        prefs.setCodecPriority("G726-40/8000/1", SipConfigManager.CODEC_NB, "0");
+        prefs.setCodecPriority("opus/48000/1", SipConfigManager.CODEC_NB, "0");
+
+
+        Log.d(TAG, "called!!!");
+
+    }
+    @Override
+    public boolean needRestart() {
+        return true;
     }
 }
