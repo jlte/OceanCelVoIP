@@ -40,6 +40,7 @@ public final class CustomDistribution {
 	 * than the one of the distribution
 	 * @return Whether other accounts can be created
 	 */
+	/* JRC changed: true -> false */
 	public static boolean distributionWantsOtherAccounts() {
 		return false;
 	}
@@ -49,6 +50,7 @@ public final class CustomDistribution {
 	 * other accounts creation
 	 * @return Whether other provider are listed is wizard picker
 	 */
+	/* JRC changed: true -> false */
 	public static boolean distributionWantsOtherProviders() {
 		return false;
 	}
@@ -58,16 +60,18 @@ public final class CustomDistribution {
 	 * If none return the feedback feature is disabled
 	 * @return the email address of support
 	 */
+	/* JRC changed: "developpers@csipsimple.com" to none */
 	public static String getSupportEmail() {
-		return "developers@csipsimple.com";
+		return "";
 	}
 	
 	/**
 	 * SIP User agent to send by default in SIP messages (by default device infos are added to User Agent string)
 	 * @return the default user agent
 	 */
+	/* JRC changed: from CSIPSIMPLE  */
 	public static String getUserAgent() {
-		return "CSipSimple";
+		return "OceanCelVoIP";
 	}
 	
 	/**
@@ -83,8 +87,9 @@ public final class CustomDistribution {
 				new Locale[] {Locale.JAPAN}, false , false,
 				Keyyo.class);
 */
+		/* JRC */
 		return new WizardInfo("JRC","JRC", R.drawable.airchord , 9,
-				new Locale[] {Locale.FRANCE}, false , false,
+				new Locale[] {}, false , false,
 				OceancelVoip.class);
 
 	}
@@ -93,8 +98,9 @@ public final class CustomDistribution {
 	 * Show or not the issue list in help
 	 * @return whether link to issue list should be displayed
 	 */
+	/* JRC changed: true to false */
 	public static boolean showIssueList() {
-		return true;
+		return false;
 	}
 	
 	/**
@@ -102,7 +108,8 @@ public final class CustomDistribution {
 	 * @return link to the FAQ
 	 */
 	public static String getFaqLink() {
-		return "http://code.google.com/p/csipsimple/wiki/FAQ?show=content,nav#Summary";
+		return "";
+//JRC		return "http://code.google.com/p/csipsimple/wiki/FAQ?show=content,nav#Summary";
 	}
 	
 	/**
@@ -127,7 +134,7 @@ public final class CustomDistribution {
 	 * @return true if the feature is enabled in this distribution
 	 */
 	public static boolean supportFavorites() {
-	    return true;
+	    return false;
 	}
 	
 	/**
@@ -144,8 +151,9 @@ public final class CustomDistribution {
 	 * Shall we force the no mulitple call feature to be set to false
 	 * @return true if we don't want to support multiple calls at all.
 	 */
+	/* JRC changed : false -> true */
 	public static boolean forceNoMultipleCalls() {
-		return false;
+		return true;
 	}
 
 	/**
@@ -153,8 +161,9 @@ public final class CustomDistribution {
 	 * @param wizardTag the tag of the generic wizard
 	 * @return true if you'd like the wizard to be listed
 	 */
+	/* JRC changed : true -> false */
     public static boolean distributionWantsGeneric(String wizardTag) {
-        return true;
+        return false;
     }
 
     /**
@@ -162,8 +171,9 @@ public final class CustomDistribution {
      * This folder will be used to store call records, configs and logs
      * @return the name of the folder to use
      */
+	/* JRC changed : "CSipSimple" -> "OcenacelVoIP" */
     public static String getSDCardFolder() {
-        return "CSipSimple";
+        return "OceanCelVoIP";
     }
 
     /**
@@ -172,7 +182,8 @@ public final class CustomDistribution {
      * Check NightlyUpdater.java for the full URL and how the server should respond...
      * @return
      */
+	/* JRC changed from "http://nightlies.csipsimple.com/" to "" */
 	public static String getNightlyUpdaterURL() {
-		return "http://nightlies.csipsimple.com/";
+		return "";
 	}
 }

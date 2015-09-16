@@ -131,6 +131,8 @@ public class SipHome extends SherlockFragmentActivity implements OnWarningChange
 
         super.onCreate(savedInstanceState);
 
+        Log.d("JRC", "test");
+
         setContentView(R.layout.sip_home);
 
         final ActionBar ab = getSupportActionBar();

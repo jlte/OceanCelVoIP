@@ -51,11 +51,8 @@
 
         <com.csipsimple.ui.dialpad.DigitsEditText
             android:id="@+id/digitsText"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_toLeftOf="@+id/accountChooserButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:background="@android:color/transparent"
             android:contentDescription="@string/description_digits_edittext"
             android:gravity="center"
@@ -63,7 +60,10 @@
             android:imeOptions="actionGo"
             android:nextFocusRight="@+id/accountChooserButton"
             android:textAppearance="@style/DialtactsDigitsTextAppearance"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/white"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
         <TextView
             android:id="@+id/rewriteTextInfo"
@@ -89,9 +89,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/imageView"
-            android:layout_below="@+id/view"
-            android:layout_toRightOf="@+id/view"
-            android:src="@drawable/oceancel2" />
+            android:src="@drawable/oceancel2"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
 
     </RelativeLayout>
     <!-- Autocomplete -->

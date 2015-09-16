@@ -38,7 +38,7 @@ public class OceancelVoip extends SimpleImplementation {
 
     @Override
     protected String getDomain() {
-        return "192.168.7.49:5060";
+        return "192.168.8.49:5060";
     }
 
     @Override
@@ -73,10 +73,10 @@ public class OceancelVoip extends SimpleImplementation {
     @Override
     public SipProfile buildAccount(SipProfile account) {
         account.display_name = accountDisplayName.getText().trim();
-        account.acc_id = accountUsername.getText().trim()+" <sip:"+ accountUsername.getText().trim() + "@192.168.7.49t:5060>";
+        account.acc_id = accountUsername.getText().trim()+" <sip:"+ accountUsername.getText().trim() + "@192.168.8.49t:5060>";
 
-        account.reg_uri = "sip:192.168.7.49:5060";
-        account.proxies = new String[] { "sip:192.168.7.49:5060" } ;
+        account.reg_uri = "sip:192.168.8.49:5060";
+        account.proxies = new String[] { "sip:192.168.8.49:5060" } ;
 
 
         account.realm = "*";
@@ -106,10 +106,15 @@ public class OceancelVoip extends SimpleImplementation {
 
         prefs.setPreferenceBooleanValue(SipConfigManager.ENABLE_TLS, false);
 
-        prefs.setCodecPriority("PCMU/8000/1", SipConfigManager.CODEC_WB,"200");
+        prefs.setPreferenceBooleanValue(SipConfigManager.CODECS_PER_BANDWIDTH, true);
 
+
+        prefs.setCodecPriority("PCMU/8000/1", SipConfigManager.CODEC_WB, "200");
+        prefs.setCodecPriority("G722/16000/1", SipConfigManager.CODEC_WB,"201");
+
+/*
         prefs.setCodecPriority("PCMA/8000/1",  SipConfigManager.CODEC_WB,"0");
-        prefs.setCodecPriority("G722/16000/1", SipConfigManager.CODEC_WB,"0");
+        prefs.setCodecPriority("G722/16000/1", SipConfigManager.CODEC_WB,"201");
         prefs.setCodecPriority("G729/8000/1",  SipConfigManager.CODEC_WB,"0");
         prefs.setCodecPriority("iLBC/8000/1",  SipConfigManager.CODEC_WB,"0");
         prefs.setCodecPriority("speex/8000/1", SipConfigManager.CODEC_WB,"0");
@@ -125,13 +130,14 @@ public class OceancelVoip extends SimpleImplementation {
         prefs.setCodecPriority("G726-32/8000/1", SipConfigManager.CODEC_WB, "0");
         prefs.setCodecPriority("G726-40/8000/1", SipConfigManager.CODEC_WB, "0");
         prefs.setCodecPriority("opus/48000/1", SipConfigManager.CODEC_WB, "0");
-
+*/
 
          // G.729, G723.1, GSM, iLBC
         prefs.setCodecPriority("PCMU/8000/1",  SipConfigManager.CODEC_NB,"200");
-
+        prefs.setCodecPriority("G722/16000/1", SipConfigManager.CODEC_NB,"201");
+/*
         prefs.setCodecPriority("PCMA/8000/1",  SipConfigManager.CODEC_NB,"0");
-        prefs.setCodecPriority("G722/16000/1", SipConfigManager.CODEC_NB,"0");
+        prefs.setCodecPriority("G722/16000/1", SipConfigManager.CODEC_NB,"201");
         prefs.setCodecPriority("G729/8000/1",  SipConfigManager.CODEC_NB,"0");
         prefs.setCodecPriority("iLBC/8000/1",  SipConfigManager.CODEC_NB,"0");
         prefs.setCodecPriority("speex/8000/1", SipConfigManager.CODEC_NB,"0");
@@ -147,7 +153,7 @@ public class OceancelVoip extends SimpleImplementation {
         prefs.setCodecPriority("G726-32/8000/1", SipConfigManager.CODEC_NB, "0");
         prefs.setCodecPriority("G726-40/8000/1", SipConfigManager.CODEC_NB, "0");
         prefs.setCodecPriority("opus/48000/1", SipConfigManager.CODEC_NB, "0");
-
+*/
 
         Log.d(TAG, "called!!!");
 
