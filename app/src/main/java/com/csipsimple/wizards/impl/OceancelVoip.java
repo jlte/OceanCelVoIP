@@ -34,16 +34,18 @@ import com.csipsimple.utils.PreferencesWrapper;
 
 public class OceancelVoip extends SimpleImplementation {
     private static final String TAG = "JRCk";
-
+    private static final String SRV = "192.168.8.49";
+    private static final String SRV_PORT =  SRV + ":5060";
+    private static final String SIP_SRV_PORT = "sip:" + SRV + ":5060";
 
     @Override
     protected String getDomain() {
-        return "192.168.8.49:5060";
+        return SRV_PORT + ":5060";
     }
 
     @Override
     protected String getDefaultName() {
-        return "your name"; /*return "OceanCel";*/
+        return "OceanCel"; /*return "OceanCel";*/
     }
 
 
@@ -56,7 +58,7 @@ public class OceancelVoip extends SimpleImplementation {
         accountUsername.setDialogTitle(R.string.w_common_phone_number);
         accountUsername.getEditText().setInputType(InputType.TYPE_CLASS_PHONE);
 */
-        accountUsername.setTitle("50 digits user account");
+        accountUsername.setTitle("5 digits user account");
         accountUsername.getEditText().setInputType(InputType.TYPE_CLASS_PHONE);
         //hidePreference(null, SERVER);
         Log.d(TAG, "called3!!!");
@@ -73,10 +75,10 @@ public class OceancelVoip extends SimpleImplementation {
     @Override
     public SipProfile buildAccount(SipProfile account) {
         account.display_name = accountDisplayName.getText().trim();
-        account.acc_id = accountUsername.getText().trim()+" <sip:"+ accountUsername.getText().trim() + "@192.168.8.49t:5060>";
+        account.acc_id = accountUsername.getText().trim()+" <sip:"+ accountUsername.getText().trim() + "@" + SRV +"t:5060>";
 
-        account.reg_uri = "sip:192.168.8.49:5060";
-        account.proxies = new String[] { "sip:192.168.8.49:5060" } ;
+        account.reg_uri = SIP_SRV_PORT;
+        account.proxies = new String[] { SIP_SRV_PORT } ;
 
 
         account.realm = "*";
@@ -106,11 +108,11 @@ public class OceancelVoip extends SimpleImplementation {
 
         prefs.setPreferenceBooleanValue(SipConfigManager.ENABLE_TLS, false);
 
-        prefs.setPreferenceBooleanValue(SipConfigManager.CODECS_PER_BANDWIDTH, true);
+//        prefs.setPreferenceBooleanValue(SipConfigManager.CODECS_PER_BANDWIDTH, true);
 
 
         prefs.setCodecPriority("PCMU/8000/1", SipConfigManager.CODEC_WB, "200");
-        prefs.setCodecPriority("G722/16000/1", SipConfigManager.CODEC_WB,"201");
+        prefs.setCodecPriority("G722/16000/1", SipConfigManager.CODEC_WB,"199");
 
 /*
         prefs.setCodecPriority("PCMA/8000/1",  SipConfigManager.CODEC_WB,"0");
@@ -134,7 +136,7 @@ public class OceancelVoip extends SimpleImplementation {
 
          // G.729, G723.1, GSM, iLBC
         prefs.setCodecPriority("PCMU/8000/1",  SipConfigManager.CODEC_NB,"200");
-        prefs.setCodecPriority("G722/16000/1", SipConfigManager.CODEC_NB,"201");
+        prefs.setCodecPriority("G722/16000/1", SipConfigManager.CODEC_NB,"199");
 /*
         prefs.setCodecPriority("PCMA/8000/1",  SipConfigManager.CODEC_NB,"0");
         prefs.setCodecPriority("G722/16000/1", SipConfigManager.CODEC_NB,"201");
