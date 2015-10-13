@@ -182,8 +182,8 @@ public final class CustomDistribution {
      * Check NightlyUpdater.java for the full URL and how the server should respond...
      * @return the name of the nightlyUpdate
      */
-	/* JRC changed from "http://nightlies.csipsimple.com/" to "" */
+	/* JRC changed from "http://nightlies.csipsimple.com/" to "http://192.168.10.249/client/download/" */
 	public static String getNightlyUpdaterURL() {
-		return "http://192.168.10.249/client/download";
+		return "http://192.168.10.249/client/download/";
 	}
 }
