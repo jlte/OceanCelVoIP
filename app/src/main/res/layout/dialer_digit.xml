@@ -89,9 +89,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/imageView"
-            android:src="@drawable/oceancel2"
+            android:src="@drawable/oceancel"
             android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true" />
+            android:layout_above="@+id/digitsText"
+            android:layout_toLeftOf="@+id/accountChooserButton"
+            android:layout_toStartOf="@+id/accountChooserButton" />
 
     </RelativeLayout>
     <!-- Autocomplete -->

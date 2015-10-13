@@ -88,7 +88,7 @@ public final class CustomDistribution {
 				Keyyo.class);
 */
 		/* JRC */
-		return new WizardInfo("JRC","JRC", R.drawable.airchord , 9,
+		return new WizardInfo("Airchord","OceanCel", R.drawable.airchord2 , 9,
 				new Locale[] {}, false , false,
 				OceancelVoip.class);
 
@@ -180,10 +180,10 @@ public final class CustomDistribution {
      * Get the complete URL for the nightly updater.
      * Return null or "" to disable.
      * Check NightlyUpdater.java for the full URL and how the server should respond...
-     * @return
+     * @return the name of the nightlyUpdate
      */
 	/* JRC changed from "http://nightlies.csipsimple.com/" to "" */
 	public static String getNightlyUpdaterURL() {
-		return "";
+		return "http://192.168.10.249/client/download";
 	}
 }

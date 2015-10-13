@@ -34,7 +34,7 @@ import com.csipsimple.utils.PreferencesWrapper;
 
 public class OceancelVoip extends SimpleImplementation {
     private static final String TAG = "JRCk";
-    private static final String SRV = "192.168.8.49";
+    private static final String SRV = "192.168.10.249";
     private static final String SRV_PORT =  SRV + ":5060";
     private static final String SIP_SRV_PORT = "sip:" + SRV + ":5060";
 
@@ -45,7 +45,7 @@ public class OceancelVoip extends SimpleImplementation {
 
     @Override
     protected String getDefaultName() {
-        return "OceanCel"; /*return "OceanCel";*/
+        return "Airchord"; /*return "OceanCel";*/
     }
 
 
@@ -58,7 +58,7 @@ public class OceancelVoip extends SimpleImplementation {
         accountUsername.setDialogTitle(R.string.w_common_phone_number);
         accountUsername.getEditText().setInputType(InputType.TYPE_CLASS_PHONE);
 */
-        accountUsername.setTitle("5 digits user account");
+        accountUsername.setTitle("4 digits user account");
         accountUsername.getEditText().setInputType(InputType.TYPE_CLASS_PHONE);
         //hidePreference(null, SERVER);
         Log.d(TAG, "called3!!!");
@@ -110,8 +110,10 @@ public class OceancelVoip extends SimpleImplementation {
 
 //        prefs.setPreferenceBooleanValue(SipConfigManager.CODECS_PER_BANDWIDTH, true);
 
+        prefs.setPreferenceBooleanValue(SipConfigManager.PREVENT_SCREEN_ROTATION ,true);
+        prefs.setPreferenceBooleanValue(SipConfigManager.USE_SOFT_VOLUME , true);
 
-        prefs.setCodecPriority("PCMU/8000/1", SipConfigManager.CODEC_WB, "200");
+                prefs.setCodecPriority("PCMU/8000/1", SipConfigManager.CODEC_WB, "200");
         prefs.setCodecPriority("G722/16000/1", SipConfigManager.CODEC_WB,"199");
 
 /*
