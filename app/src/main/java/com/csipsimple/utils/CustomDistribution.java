@@ -88,7 +88,7 @@ public final class CustomDistribution {
 				Keyyo.class);
 */
 		/* JRC */
-		return new WizardInfo("Airchord","OceanCel", R.drawable.airchord2 , 9,
+		return new WizardInfo("OceanCel","OceanCel", R.drawable.ic_launcher_phone, 9,
 				new Locale[] {}, false , false,
 				OceancelVoip.class);
 
@@ -108,8 +108,8 @@ public final class CustomDistribution {
 	 * @return link to the FAQ
 	 */
 	public static String getFaqLink() {
-		return "";
-//JRC		return "http://code.google.com/p/csipsimple/wiki/FAQ?show=content,nav#Summary";
+//		return "";
+		return "http://code.google.com/p/csipsimple/wiki/FAQ?show=content,nav#Summary";
 	}
 	
 	/**
@@ -153,7 +153,7 @@ public final class CustomDistribution {
 	 */
 	/* JRC changed : false -> true */
 	public static boolean forceNoMultipleCalls() {
-		return true;
+		return false;
 	}
 
 	/**

@@ -34,7 +34,7 @@ import com.csipsimple.utils.PreferencesWrapper;
 
 public class OceancelVoip extends SimpleImplementation {
     private static final String TAG = "JRCk";
-    private static final String SRV = "192.168.10.249";
+    private static final String SRV = "192.168.8.249";
     private static final String SRV_PORT =  SRV + ":5060";
     private static final String SIP_SRV_PORT = "sip:" + SRV + ":5060";
 
@@ -45,7 +45,7 @@ public class OceancelVoip extends SimpleImplementation {
 
     @Override
     protected String getDefaultName() {
-        return "Airchord"; /*return "OceanCel";*/
+        return "OceanCel"; /*return "OceanCel";*/
     }
 
 
@@ -58,7 +58,7 @@ public class OceancelVoip extends SimpleImplementation {
         accountUsername.setDialogTitle(R.string.w_common_phone_number);
         accountUsername.getEditText().setInputType(InputType.TYPE_CLASS_PHONE);
 */
-        accountUsername.setTitle("4 digits user account");
+        accountUsername.setTitle("7 digits user number");
         accountUsername.getEditText().setInputType(InputType.TYPE_CLASS_PHONE);
         //hidePreference(null, SERVER);
         Log.d(TAG, "called3!!!");

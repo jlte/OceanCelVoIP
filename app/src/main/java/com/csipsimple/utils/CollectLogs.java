@@ -155,14 +155,14 @@ public class CollectLogs {
 	public final static String getApplicationInfo(Context ctx) {
 		String result = "";
 		PackageManager pm = ctx.getPackageManager();
-        result += "Based on GPL application ";
         result += ctx.getApplicationInfo().loadLabel(pm);
-        result += " version : ";
+        PackageInfo pinfo = PreferencesProviderWrapper.getCurrentPackageInfos(ctx);
+        if(pinfo != null) {
+            result += "("+pinfo.versionName + " r" + pinfo.versionCode +")";
+        }
+        result += " is Based on GPL application CSipSimple";
+        result += " version : 1.02.03 r2417";
 		
-		PackageInfo pinfo = PreferencesProviderWrapper.getCurrentPackageInfos(ctx);
-		if(pinfo != null) {
-			result += pinfo.versionName + " r" + pinfo.versionCode;
-		}
 		return result;
 	}
 	
